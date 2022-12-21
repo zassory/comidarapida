@@ -1,25 +1,17 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
-import { PrismaClient } from '@prisma/client';
+
+import Layout from "../layout/Layout";
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home({categorias}) {
-  console.log(categorias);
+export default function Home() {
+ 
+
   return (
-    <h1>Next.js</h1>
+    <Layout>
+      <h1>Inicio</h1>
+    </Layout>
   )
 }
-
-export const getServerSideProps = async () => {
-  const prisma = new PrismaClient();
-  const categorias = await prisma.categoria.findMany();
-  console.log("En el servidor: ", categorias);
-  
-  return {
-    props: {
-      categorias,
-    }
-  }
-};
