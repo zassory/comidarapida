@@ -1,6 +1,11 @@
 import Image from "next/image";
+import { Categoria } from "./Categoria";
+import { useQuiosco } from "../hooks/useQuiosco";
 
 export const Sidebar = () => {
+
+  const { categorias } = useQuiosco();
+
   return (
     <>
         <Image 
@@ -10,7 +15,14 @@ export const Sidebar = () => {
             alt="imagen logotipo"
         />
 
-        
+        <nav className="mt-10">
+            {categorias.map(categoria => (
+                <Categoria
+                    key={categoria.id}
+                    categoria={categoria}
+                >{categoria.nombre}</Categoria>
+            ))}
+        </nav>
     </>
   )
 }
