@@ -6,20 +6,24 @@ import { formatearDinero } from "../helpers";
 export const ModalProducto = () => {
  
   const { 
-        producto, 
+        producto,
         handleChangeModal, 
         handleAgregarPedido,
-        pedido } = useQuiosco();
+        pedido 
+    } = useQuiosco();
   const [cantidad,setCantidad] = useState(1);
   const [edicion, setEdicion] = useState(false);
 
-  useEffect(()=> {
-    if(pedido.some((pedidoState) => pedidoState.id === producto.id)) {
+  useEffect(() => {
+    //Itera lo que hay en el pedido, por ende en el state  
+    if(pedido.some((pedidoState) => pedidoState.id === producto.id)){
         const productoEdicion = pedido.find((pedidoState) => pedidoState.id === producto.id);
+        console.log("------------------------>",productoEdicion.cantidad);
         setEdicion(true);
         setCantidad(productoEdicion.cantidad);
     }
-  },[producto, pedido]);    
+  },[producto, pedido]);
+  
 
   return (
     <div className="md:flex gap-10">
