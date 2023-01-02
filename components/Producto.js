@@ -9,7 +9,7 @@ export const Producto = ({producto}) => {
 
   return (
     <div className="border p-3">
-        <Image 
+        <Image
         src={`/assets/img/${imagen}.jpg`} 
         alt={`Imagen Platillo ${nombre}`}
         width={400}

@@ -17,13 +17,13 @@ export const QuioscoProvider = ({children}) => {
     }
     useEffect(()=> {
         obtenerCategorias();
-    }, []);
+    }, []);//Al menos se hace una vez
 
     useEffect(()=> {
         setCategoriaActual(categorias[0]);
     },[categorias]);
 
-    const handleClickCategoria = id => {
+    const handleClickCategoria = (id) => {
         const categoria = categorias.filter( cat => cat.id === id );
         setCategoriaActual(categoria[0]);
     }
@@ -35,14 +35,15 @@ export const QuioscoProvider = ({children}) => {
     const handleChangeModal = () => {
         setModal(!modal);
     }
-
-    //Lo que hago es obtener una copia de producto
-    //Saca categoriaId e imagen y va a aplicar desestructuring y
-    //Tomar una copa de un objeto nuevo sin edad propiedades del objeto
+    
     const handleAgregarPedido = ({categoriaId, imagen, ...producto}) => {
-        setPedido([...pedido,producto]);//tomamos una copia de lo que hay en pedido
-        //Y despues le agregamos el producto
-        //Para que lo vaya agregando al final del arreglo
+        if(pedido.some(productoState => productoState.id === producto.id)){            
+            const pedidoActualizado = pedido.map(productoState =>
+            productoState.id === producto.id ? producto : productoState);
+            setPedido(pedidoActualizado);
+        }else{
+            setPedido([...pedido,producto]);
+        }
     }
 
     return (
