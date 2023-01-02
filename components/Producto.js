@@ -25,8 +25,8 @@ export const Producto = ({producto}) => {
               className="bg-indigo-600 hover:bg-indigo-800 text-white
               w-full mt-5 p-3 uppercase font-bold"
               onClick={() => {
-                handleChangeModal()
-                handleSetProducto(producto)
+                handleChangeModal();
+                handleSetProducto(producto);
               }}
             >
               Agregar

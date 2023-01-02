@@ -16,10 +16,11 @@
     "@prisma/client": "^4.8.0",
     "axios": "^1.2.2",
     "eslint": "8.30.0",
-    "eslint-config-next": "13.0.7",
+    "eslint-config-next": "^12.0.4",
     "next": "13.0.7",
-    "react": "18.2.0",
+    "react": "^18.2.0",
     "react-dom": "18.2.0",
+    "react-modal": "^3.16.1",
     "ts-node": "^10.9.1"
   },
   "devDependencies": {
