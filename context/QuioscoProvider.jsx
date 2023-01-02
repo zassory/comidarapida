@@ -9,6 +9,7 @@ export const QuioscoProvider = ({children}) => {
     const [categoriaActual,setCategoriaActual] = useState({});
     const [producto,setProducto] = useState({});
     const [modal,setModal] = useState(false);
+    const [pedido,setPedido] = useState([]);//Porque podemos agregar multiples elementos
 
     const obtenerCategorias = async() => {
         const { data } = await axios('/api/categorias');
@@ -35,6 +36,15 @@ export const QuioscoProvider = ({children}) => {
         setModal(!modal);
     }
 
+    //Lo que hago es obtener una copia de producto
+    //Saca categoriaId e imagen y va a aplicar desestructuring y
+    //Tomar una copa de un objeto nuevo sin edad propiedades del objeto
+    const handleAgregarPedido = ({categoriaId, imagen, ...producto}) => {
+        setPedido([...pedido,producto]);//tomamos una copia de lo que hay en pedido
+        //Y despues le agregamos el producto
+        //Para que lo vaya agregando al final del arreglo
+    }
+
     return (
         <QuioscoContext.Provider
             value={{
@@ -45,6 +55,7 @@ export const QuioscoProvider = ({children}) => {
                 handleSetProducto,
                 modal,
                 handleChangeModal,
+                handleAgregarPedido,
             }}
         >
             {children}

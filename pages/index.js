@@ -10,8 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
    
-  const { categoriaActual } = useQuiosco();
-  console.log(categoriaActual);
+  const { categoriaActual } = useQuiosco();  
 
   return (
     <Layout pagina={`Menú ${categoriaActual}`}>
