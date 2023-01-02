@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Modal from "react-modal";
 import { Sidebar } from "../components/Sidebar";
+import { ModalProducto } from "../components/ModalProducto";
 import { useQuiosco } from "../hooks/useQuiosco";
 
 const customStyles = {
@@ -43,7 +44,7 @@ export const Layout = ({children , pagina}) => {
                     isOpen={modal}
                     style={customStyles}
                 >
-                    <h1>Modal...</h1>
+                    <ModalProducto />
                 </Modal>
             )}
 
