@@ -6,6 +6,7 @@ import { Layout } from "../layout/Layout";
 import { Producto } from "../components/Producto";
 import { useQuiosco } from '../hooks/useQuiosco';
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {

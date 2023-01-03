@@ -15,10 +15,10 @@ export const ModalProducto = () => {
   const [edicion, setEdicion] = useState(false);
 
   useEffect(() => {
-    //Itera lo que hay en el pedido, por ende en el state  
+    //Itera lo que hay en el pedido, por ende en el state
     if(pedido.some((pedidoState) => pedidoState.id === producto.id)){
-        const productoEdicion = pedido.find((pedidoState) => pedidoState.id === producto.id);
-        console.log("------------------------>",productoEdicion.cantidad);
+        const productoEdicion =
+        pedido.find((pedidoState) => pedidoState.id === producto.id);
         setEdicion(true);
         setCantidad(productoEdicion.cantidad);
     }
