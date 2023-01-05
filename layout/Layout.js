@@ -40,7 +40,7 @@ export const Layout = ({children , pagina}) => {
                     <div className="p-10">
                         <Pasos />
                         {children}
-                    </div>                    
+                    </div>
                 </main>
             </div>
 
@@ -54,7 +54,6 @@ export const Layout = ({children , pagina}) => {
             )}
 
             <ToastContainer />
-
         </>
     )
 }

@@ -10,8 +10,7 @@ export const QuioscoProvider = ({children}) => {
     const [categoriaActual,setCategoriaActual] = useState({});
     const [producto,setProducto] = useState({});
     const [modal,setModal] = useState(false);
-    const [pedido,setPedido] = useState([]);//Porque podemos agregar multiples elementos
-    const [paso,setPaso] = useState(1);
+    const [pedido,setPedido] = useState([]);//Porque podemos agregar multiples elementos    
 
     const obtenerCategorias = async() => {
         const { data } = await axios('/api/categorias');
@@ -52,9 +51,9 @@ export const QuioscoProvider = ({children}) => {
         setModal(false);
     }
 
-    const handleChangePaso = paso => {
-        setPaso(paso);
-    }
+    // const handleChangePaso = ( paso ) => {
+    //     setPaso(paso);
+    // }
 
     return (
         <QuioscoContext.Provider
@@ -68,8 +67,8 @@ export const QuioscoProvider = ({children}) => {
                 handleChangeModal,
                 handleAgregarPedido,
                 pedido,
-                paso,
-                handleChangePaso,
+                //paso,
+                //handleChangePaso,
             }}
         >
             {children}

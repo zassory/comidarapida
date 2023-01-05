@@ -1,4 +1,5 @@
 import { Layout } from "../layout/Layout";
+import { useQuiosco } from "../hooks/useQuiosco";
 
 export default function Total() {    
     return (
