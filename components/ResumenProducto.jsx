@@ -1,7 +1,11 @@
 import Image from "next/image";
 import { formatearDinero } from "../helpers";
+import { useQuiosco } from "../hooks/useQuiosco";
 
 export const ResumenProducto = ({producto}) => {
+
+  const { handleEditarCantidades } = useQuiosco();
+
   return (
     <div className="shadow p-5 mb-3 flex gap-10 items-center">
         <div className="md:w-1/6">
@@ -25,7 +29,8 @@ export const ResumenProducto = ({producto}) => {
             <button
                 type="button"
                 className="bg-sky-700 flex gap-2 px-5 py-2 text-white rounded-md
-                font-bold uppercase shadow-md w-full"
+                font-bold uppercase shadow-md w-full text-center"
+                onClick={() => handleEditarCantidades(producto.id)}
             >
             <svg 
                 xmlns="http://www.w3.org/2000/svg" 

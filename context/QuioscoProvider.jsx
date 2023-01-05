@@ -6,10 +6,10 @@ const QuioscoContext = createContext();
 
 export const QuioscoProvider = ({children}) => {
 
-    const [categorias,setCategorias] = useState([]);
-    const [categoriaActual,setCategoriaActual] = useState({});
-    const [producto,setProducto] = useState({});
-    const [modal,setModal] = useState(false);
+    const [categorias,setCategorias] = useState([]);//Las categorias que llenan el sidebar
+    const [categoriaActual,setCategoriaActual] = useState({});//las categoria seleccionada
+    const [producto,setProducto] = useState({});//El producto seleccionado
+    const [modal,setModal] = useState(false);//
     const [pedido,setPedido] = useState([]);//Porque podemos agregar multiples elementos    
 
     const obtenerCategorias = async() => {
@@ -55,6 +55,16 @@ export const QuioscoProvider = ({children}) => {
     //     setPaso(paso);
     // }
 
+    const handleEditarCantidades = (id) => {
+        //1.primero vamos a encontrar el pedido a actualizar
+        //El pedido es un conjunto de productos
+        const productoActualizar = pedido.filter(producto => producto.id === id);
+        console.log('----------',productoActualizar);
+        //el producto seleccionado
+        setProducto(productoActualizar[0]);
+        setModal(!modal);
+    }
+
     return (
         <QuioscoContext.Provider
             value={{
@@ -69,6 +79,7 @@ export const QuioscoProvider = ({children}) => {
                 pedido,
                 //paso,
                 //handleChangePaso,
+                handleEditarCantidades,
             }}
         >
             {children}
