@@ -8,9 +8,12 @@ export default function Total() {
 
     const { pedido , nombre , setNombre , colocarOrden , total } = useQuiosco();
 
-    const comprobarPedido = useCallback(() => {
-        return pedido.length === 0 || nombre === '' || nombre.length < 3;
-    },[pedido,nombre]);
+    //Esto memoriza una funcion
+     const comprobarPedido = useCallback(() => {
+         return pedido.length === 0 || nombre === '' || nombre.length < 3;
+     },[pedido,nombre]);    
+
+    console.log(comprobarPedido());
 
     useEffect(() => {
         comprobarPedido();
