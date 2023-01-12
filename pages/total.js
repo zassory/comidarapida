@@ -11,9 +11,7 @@ export default function Total() {
     //Esto memoriza una funcion
      const comprobarPedido = useCallback(() => {
          return pedido.length === 0 || nombre === '' || nombre.length < 3;
-     },[pedido,nombre]);    
-
-    console.log(comprobarPedido());
+     },[pedido,nombre]);        
 
     useEffect(() => {
         comprobarPedido();
